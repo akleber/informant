@@ -32,7 +32,7 @@ Then create a separate environment inside the informants folder...
 
 > $ . venv/bin/activate
 
-Now that you are using the virtualenv you can safely install Flask:
+Now you can install the recommended requirements (created with "pip freeze > requirements.txt"):
 
-> sudo pip install Flask
+> pip install -r requirements.txt
 
