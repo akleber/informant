@@ -6,8 +6,9 @@ The informant is based on four components:
 2. The *source* is a mail client that sends messages based on regular expression matching the 
    messages added to the database.
 3. The *list* is a web application based on [Flask](http://flask.pocoo.org) that displays the 
-   messages in the database and alows for manageing the sending of arriving emails
-4. *db* is a shared component for the other three parts of the informant an tool for database maintenance
+   messages in the database and alows for managing the sending of arriving emails
+4. The *database* is a shared component for the other three parts of the informant an tool for 
+   database access and maintenance
 
 # Requirements
 

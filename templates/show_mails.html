@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% for mail in mails %}
+    <li><h2>{{ mail.date }}</h2>{{ mail.maildata|safe }}
+  {% else %}
+    <li><em>Unbelievable.  No mails here so far</em>
+  {% endfor %}
+  </ul>
+{% endblock %}
