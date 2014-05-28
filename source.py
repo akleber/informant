@@ -12,7 +12,7 @@ remoteaddr = '127.0.0.1:1026'
 
 def deliver(mailfrom, rcpttos, data):
 	print 'Sending email from: ', mailfrom, ' to: ', rcpttos
-	return
+	#return
 
 	refused = {}
 	try:

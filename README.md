@@ -37,3 +37,6 @@ Now you can install the recommended requirements (created with "pip freeze > req
 
 > pip install -r requirements.txt
 
+# ToDo
+
+* last_processed_mail_id is not updated on smtp error -> stuck
