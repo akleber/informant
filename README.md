@@ -19,23 +19,23 @@ The informant is based on four components:
 I recommend installing the informant inside a virtualenv.
 First install virtualenv
 
-> sudo pip install virtualenv
+	$ sudo pip install virtualenv
 
 Then create a separate environment inside the informants folder...
 
-> mkdir informant
-> cd informant
-> virtualenv venc
-> New python executable in venv/bin/python
-> Installing distribute............done.
+	$ mkdir informant
+	$ cd informant
+	$ virtualenv venc
+	New python executable in venv/bin/python
+	Installing distribute............done.
 
 ...and activate it.
 
-> $ . venv/bin/activate
+	$ . venv/bin/activate
 
 Now you can install the recommended requirements (created with "pip freeze > requirements.txt"):
 
-> pip install -r requirements.txt
+	$ pip install -r requirements.txt
 
 # ToDo
 
