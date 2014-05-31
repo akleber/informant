@@ -39,4 +39,6 @@ Now you can install the recommended requirements (created with "pip freeze > req
 
 # ToDo
 
-* last_processed_mail_id is not updated on smtp error -> stuck
+* save processed state per mail
+* optimize list output
+* forwarding rules administration

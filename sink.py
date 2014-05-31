@@ -5,6 +5,10 @@ from datetime import datetime
 
 import database
 
+LISTENING_ADDRESS = '0.0.0.0'
+LISTENING_PORT = 1025
+
+
 class Sink(smtpd.SMTPServer):
     
 	def process_message(self, peer, mailfrom, rcpttos, data):
@@ -26,7 +30,7 @@ if __name__ == "__main__":
 	try:
 		con = database.connect_db()
 
-		server = Sink(('0.0.0.0', 1025), None)
+		server = Sink((LISTENING_ADDRESS, LISTENING_PORT), None)
 		asyncore.loop()
 
 	finally:
