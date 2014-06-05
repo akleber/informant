@@ -1,9 +1,9 @@
 
 import os
 from sqlite3 import dbapi2 as sqlite3
-from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash
-import markdown
+from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, Markup
+from markdown import markdown
+from email.parser import Parser
 
 
 # create our little application :)
@@ -38,9 +38,21 @@ def close_db(error):
 
 @app.template_filter('markdown')
 def markdown_filter(data):
-    from flask import Markup
-    from markdown import markdown
     return Markup(markdown(data))
+
+@app.template_filter('email_subject')
+def email_subject_filter(data):
+    return Parser().parsestr(data, True)['subject']
+
+@app.template_filter('email_from')
+def email_subject_filter(data):
+    return Parser().parsestr(data, True)['from']
+
+@app.template_filter('email_body')
+def email_subject_filter(data):
+    # Todo: Multipart handling
+    # http://stackoverflow.com/questions/17874360/python-how-to-parse-the-body-from-a-raw-email-given-that-raw-email-does-not
+    return Parser().parsestr(data, False).get_payload()
 
 def render_markdown_file(filename):
     with open (filename, 'r') as file:
@@ -51,7 +63,7 @@ def render_markdown_file(filename):
 @app.route('/')
 def show_mails():
     db = get_db()
-    cur = db.execute('select date, maildata from mails order by date desc')
+    cur = db.execute('select datetime(date) as date, maildata from mails order by date desc')
     mails = cur.fetchall()
     return render_template('show_mails.html', mails = mails)
 

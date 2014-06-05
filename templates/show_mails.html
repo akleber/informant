@@ -1,9 +1,17 @@
 {% extends "layout.html" %}
 {% block body %}
+  <ul>
   {% for mail in mails %}
-    <li><h2>{{ mail.date }}</h2>{{ mail.maildata|safe }}
+    <li>
+      <div class="header">
+        <div class="from">From: {{ mail.maildata|email_from|safe }}<br />
+                          {{ mail.date }}</div>
+        <div class="subject">{{ mail.maildata|email_subject|safe }}</div>
+      </div>
+      <pre>{{ mail.maildata|email_body|safe }}</pre>
+    </li>
   {% else %}
-    <li><em>Unbelievable.  No mails here so far</em>
+    <li><em>Unbelievable.  No mails here so far</em></li>
   {% endfor %}
   </ul>
 {% endblock %}
