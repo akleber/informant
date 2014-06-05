@@ -3,7 +3,7 @@
   <ul>
   {% for mail in mails %}
     <li>
-      <div class="header">
+      <div class="header {{ mail.maildata|headercolor }}">
         <div class="from">From: {{ mail.maildata|email_from|safe }}<br />
                           {{ mail.date }}</div>
         <div class="subject">{{ mail.maildata|email_subject|safe }}</div>

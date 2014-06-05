@@ -40,5 +40,5 @@ Now you can install the recommended requirements (created with "pip freeze > req
 # ToDo
 
 * save processed state per mail
-* optimize list output
+* header color based on keywords
 * forwarding rules administration

@@ -54,6 +54,10 @@ def email_subject_filter(data):
     # http://stackoverflow.com/questions/17874360/python-how-to-parse-the-body-from-a-raw-email-given-that-raw-email-does-not
     return Parser().parsestr(data, False).get_payload()
 
+@app.template_filter('headercolor')
+def headercolor_filter(data):
+    return 'red'
+
 def render_markdown_file(filename):
     with open (filename, 'r') as file:
         content = file.read()

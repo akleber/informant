@@ -13,7 +13,11 @@ pre				{ font-size: small; padding: 0.3em; margin: 0;}
                   border: 1px solid #AACBE2; }
 .error          { background: #F0D6D6; padding: 0.5em; }
 
-.header         { background: rgb(245,245,245); display: block; overflow: hidden; padding: 0.3em;}
+.header         { display: block; overflow: hidden; padding: 0.3em;}
+
+.red			{ background: rgb(245,245,245); }
+.green 			{ background: rgb(245,245,245); }
+
 
 .from			{ font-family: monospace; font-size: medium; font-weight: normal;
 				  float: left; width: 25%;}
