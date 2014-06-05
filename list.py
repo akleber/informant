@@ -14,7 +14,7 @@ app.config.update(dict(
     DATABASE=os.path.join(app.root_path, 'informant.db'),
     DEBUG=True
 ))
-app.config.from_envvar('FLASKR_SETTINGS', silent=True)
+
 
 def connect_db():
     """Connects to the specific database."""
@@ -35,6 +35,7 @@ def close_db(error):
     """Closes the database again at the end of the request."""
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
+
 
 @app.template_filter('markdown')
 def markdown_filter(data):
@@ -61,22 +62,34 @@ def headercolor_filter(data):
     #return '#AEFFB3'
     return '#F5F5F5'
 
+
 def render_markdown_file(filename):
     with open (filename, 'r') as file:
         content = file.read()
         file.close()
     return render_template('markdown.html', content = content, title = filename)
 
+
 @app.route('/')
 def show_mails():
     db = get_db()
-    cur = db.execute('select datetime(date) as date, maildata from mails order by date desc')
+    cur = db.execute('select id, datetime(date) as date, maildata from mails order by date desc')
     mails = cur.fetchall()
     return render_template('show_mails.html', mails = mails)
 
 @app.route('/readme')
 def show_readme():
     return render_markdown_file('README.md')
+
+@app.route('/email_raw')
+def show_email_raw():
+    id = request.args.get('id')
+
+    db = get_db()
+    cur = db.execute('select maildata from mails where id = ?', (id,))
+    content = cur.fetchone()
+    return render_template('email_raw.html', content = content[0])
+
 
 if __name__ == "__main__":
     app.run()

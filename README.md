@@ -43,3 +43,4 @@ Now you can install the recommended requirements (created with "pip freeze > req
 * header color based on keywords
 * forwarding rules administration
 * styling rules admin
+* /forwarding-edit, /forwarding-add, /forwarding-delete
