@@ -2,10 +2,14 @@
 <title>Informant</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <div class=page>
-  <h1>Informant</h1>
+  <div class="top">
+    <div class="top-title">Informant</div>
+    <div class="top-nav"><a href=readme>README.md</a> | <a href=edit-forwarding>Edit forwarding rules</a> | <a href=edit-styling>Edit styling rules</a></div>
+  </div>
+
   {% for message in get_flashed_messages() %}
     <div class=flash>{{ message }}</div>
   {% endfor %}
-  <p><a href=readme>README.md</a></p>
+  
   {% block body %}{% endblock %}
 </div>

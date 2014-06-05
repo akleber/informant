@@ -9,6 +9,10 @@ pre				{ font-size: small; padding: 0.3em; margin: 0;}
 .page           { margin: 2em auto; width: 1000px; border: 5px solid #ccc;
                   padding: 1.5em; background: white; }
 
+.top 			{ display: block; overflow: hidden; }
+.top-title		{ float: left; font-size: 2em; color: #377BA8; }
+.top-nav		{ float: right; }
+
 .flash          { background: #CEE5F5; padding: 0.5em;
                   border: 1px solid #AACBE2; }
 .error          { background: #F0D6D6; padding: 0.5em; }
