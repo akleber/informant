@@ -56,7 +56,10 @@ def email_subject_filter(data):
 
 @app.template_filter('headercolor')
 def headercolor_filter(data):
-    return 'red'
+    # todo get regex and color from database
+    #return '#FFC7C7'
+    #return '#AEFFB3'
+    return '#F5F5F5'
 
 def render_markdown_file(filename):
     with open (filename, 'r') as file:
