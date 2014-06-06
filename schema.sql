@@ -15,6 +15,13 @@ CREATE TABLE forwarding_rules (
   'email_address' text not null
 );
 
+DROP TABLE IF EXISTS styling_rules;
+CREATE TABLE styling_rules (
+  'id' integer primary key autoincrement,
+  'regex' text not null,
+  'header_color' text not null
+);
+
 DROP TABLE IF EXISTS source;
 CREATE TABLE source (
   'last_processed_id' INTEGER DEFAULT 0

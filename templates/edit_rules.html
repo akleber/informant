@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block body %}
+	<form action="{{ url_for('forwarding_add') }}" method=post style="padding-top: 20px; padding-bottom: 10px;">
+		<div>
+			{% for column in columns %}
+				<!-- 
+				columns: cid, name, type, notnull, dflt_value, pk
+
+				0|id|integer|0||1
+				1|regex|text|1||0
+				2|email_address|text|1||0
+				-->
+				{% if column.name == "id" %}
+				<!-- skip -->
+				{% else %}
+					{{ column.name }} : <input type=text size=30 name=column.name />
+				{% endif %}
+			{% endfor %}
+			<input type=submit value="Add">
+		</div>
+	</form>
+
+	<h2 style="margin-top: 0.5em; margin-bottom: 0.5em">Existing {{ ruletype }} rules:</h2>
+
+	<table id="rules_table">
+		<thead>
+			<tr>
+				{% for column in columns %}
+				<th>
+					{{ column.name }}
+				</th>
+				{% endfor %}
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for row in rows %}
+			<tr>
+				{% for column in columns %}
+				<td>
+					{{ row[loop.index0] }}
+				</td>
+				{% endfor %}
+				<td>
+					<a href="/forwarding_delete">delete</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

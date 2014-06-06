@@ -69,26 +69,57 @@ def render_markdown_file(filename):
         file.close()
     return render_template('markdown.html', content = content, title = filename)
 
+def render_edit_rules(ruletype):
+    db = get_db()
+    tablename = ruletype+'_rules'
+    # get the columns
+    # instead of using the more secure ? placeholder, the sql query is constructed with the parameter directly
+    # because the ? does not work in the pragma statement
+    cur = db.execute('pragma table_info( '+tablename+' )')
+    columns = cur.fetchall()
+
+    cur = db.execute('select * from '+tablename)
+    rows = cur.fetchall()
+
+    return render_template('edit_rules.html', ruletype = ruletype, columns = columns, rows = rows)
+
 
 @app.route('/')
-def show_mails():
+def messages():
     db = get_db()
-    cur = db.execute('select id, datetime(date) as date, maildata from mails order by date desc')
+    cur = db.execute('select id, datetime(date) as date, maildata from mails order by date desc limit 30')
     mails = cur.fetchall()
-    return render_template('show_mails.html', mails = mails)
+    return render_template('messages.html', mails = mails)
 
 @app.route('/readme')
-def show_readme():
+def readme():
     return render_markdown_file('README.md')
 
 @app.route('/email_raw')
-def show_email_raw():
+def email_raw():
     id = request.args.get('id')
 
     db = get_db()
     cur = db.execute('select maildata from mails where id = ?', (id,))
     content = cur.fetchone()
     return render_template('email_raw.html', content = content[0])
+
+@app.route('/forwarding_edit')
+def forwarding_edit():
+    return render_edit_rules('forwarding')
+
+@app.route('/forwarding_add')
+def forwarding_add():
+    return render_markdown_file('README.md')
+
+@app.route('/styling_edit')
+def styling_edit():
+    return render_edit_rules('styling')
+
+@app.route('/styling_add')
+def styling_add():
+    return render_markdown_file('README.md')
+
 
 
 if __name__ == "__main__":

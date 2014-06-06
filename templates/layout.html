@@ -4,7 +4,12 @@
 <div class=page>
   <div class="top">
     <div class="top-title">Informant</div>
-    <div class="top-nav"><a href=readme>README.md</a> | <a href=forwarding-edit>Edit forwarding rules</a> | <a href=styling-edit>Edit styling rules</a></div>
+    <div class="top-nav">
+      <a href="{{ url_for('messages') }}" {% if request.path == url_for('messages') %}class="active"{% endif %}>Messages</a> | 
+      <a href="{{ url_for('readme') }}" {% if request.path == url_for('readme') %}class="active"{% endif %}>README.md</a> | 
+      <a href="{{ url_for('forwarding_edit') }}" {% if request.path == url_for('forwarding_edit') %}class="active"{% endif %}>Edit forwarding rules</a> | 
+      <a href="{{ url_for('styling_edit') }}" {% if request.path == url_for('styling_edit') %}class="active"{% endif %}>Edit styling rules</a>
+    </div>
   </div>
 
   {% for message in get_flashed_messages() %}

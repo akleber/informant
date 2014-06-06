@@ -69,6 +69,8 @@ kjbkjkjb');
 INSERT INTO "forwarding_rules" VALUES(1,'.*','aln@esi-group.com');
 INSERT INTO "forwarding_rules" VALUES(2,'.*From:\svery_important','priority@icido.com');
 
+INSERT INTO "styling_rules" VALUES(1,'.*','bb0000');
+
 INSERT INTO "source" VALUES(2);
 
 COMMIT;

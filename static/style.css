@@ -1,17 +1,21 @@
 body            { font-family: sans-serif; background: #eee; }
-a, h1           { color: #377BA8; }
+a, h1, h2       { color: #377BA8; }
 h1              { border-bottom: 2px solid #eee; margin-top: 0; }
+h2				{ font-weight: normal; }
 
 ul				{ list-style-type: none; padding-left: 0}
 li 				{ border: 1px solid #ccc; margin-bottom: 0.5em; }
 pre				{ font-size: small; padding: 0.3em; margin: 0;}
 
+.active			{ background: #eeeeee; border-radius: 3px; }
+.top-nav a 		{ padding: 5px; }
+
 .page           { margin: 2em auto; width: 1000px; border: 5px solid #ccc;
                   padding: 1.5em; background: white; }
 
-.top 			{ display: block; overflow: hidden; }
+.top 			{ display: block; overflow: hidden;}
 .top-title		{ float: left; font-size: 2em; color: #377BA8; }
-.top-nav		{ float: right; }
+.top-nav		{ float: right; padding-top: 5px;}
 
 .flash          { background: #CEE5F5; padding: 0.5em;
                   border: 1px solid #AACBE2; }
@@ -28,3 +32,8 @@ pre				{ font-size: small; padding: 0.3em; margin: 0;}
 
 .subject		{ font-family: monospace; font-size: medium; font-weight: bold;
                   float: left;}
+
+#rules_table	{ background: #fff; width: 480px; border-collapse: collapse; text-align: left; }
+#rules_table th { font-weight: bold; padding: 10px 8px; border-bottom: 2px solid #377BA8; }
+#rules_table td { border-bottom: 1px solid #ccc; padding: 6px 8px; }
+

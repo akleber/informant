@@ -44,3 +44,12 @@ Now you can install the recommended requirements (created with "pip freeze > req
 * forwarding rules administration
 * styling rules admin
 * /forwarding-edit, /forwarding-add, /forwarding-delete
+* move nav highlight
+* readme and rmail-raw in layout.html
+Examples on rule edit pages
+* many message handling
+** Paging
+** Date picker/Filter 
+
+
+
