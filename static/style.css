@@ -1,10 +1,7 @@
 body            { font-family: sans-serif; background: #eee; }
 a, h1, h2       { color: #377BA8; }
-h1              { border-bottom: 2px solid #eee; margin-top: 0; }
+h1              { font-weight: normal; border-bottom: 2px solid #eee; }
 h2				{ font-weight: normal; }
-
-ul				{ list-style-type: none; padding-left: 0}
-li 				{ border: 1px solid #ccc; margin-bottom: 0.5em; }
 pre				{ font-size: small; padding: 0.3em; margin: 0;}
 
 .active			{ background: #eeeeee; border-radius: 3px; }
@@ -13,7 +10,7 @@ pre				{ font-size: small; padding: 0.3em; margin: 0;}
 .page           { margin: 2em auto; width: 1000px; border: 5px solid #ccc;
                   padding: 1.5em; background: white; }
 
-.top 			{ display: block; overflow: hidden;}
+.top 			{ display: block; overflow: hidden; margin-bottom: 1.5em;}
 .top-title		{ float: left; font-size: 2em; color: #377BA8; }
 .top-nav		{ float: right; padding-top: 5px;}
 
@@ -21,6 +18,8 @@ pre				{ font-size: small; padding: 0.3em; margin: 0;}
                   border: 1px solid #AACBE2; }
 .error          { background: #F0D6D6; padding: 0.5em; }
 
+.messages		{ list-style-type: none; padding-left: 0}
+.message 		{ border: 1px solid #ccc; margin-bottom: 0.5em; }
 .header         { display: block; overflow: hidden; padding: 0.3em;}
 
 .red			{ background: rgb(245,245,245); }

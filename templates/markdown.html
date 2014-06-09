@@ -1,8 +1,4 @@
-<html>
-  <head>
-    <title>{{ filename }}</title>
-  </head>
-  <body>
-    {{ content|markdown }}
-  </body>
-</html>
+{% extends "layout.html" %}
+{% block body %}
+	{{ content|markdown }}
+{% endblock %}

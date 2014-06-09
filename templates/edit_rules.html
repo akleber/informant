@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-	<form action="{{ url_for('forwarding_add') }}" method=post style="padding-top: 20px; padding-bottom: 10px;">
+	<form action="{{ url_for('forwarding_add') }}" method=post>
 		<div>
 			{% for column in columns %}
 				<!-- 

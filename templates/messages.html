@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% block body %}
-  <ul>
+  <ul class="messages">
   {% for mail in mails %}
-    <li>
+    <li class="message">
       <div class="header" style="background: {{ mail.maildata|headercolor }}">
         <div class="from">From: {{ mail.maildata|email_from|safe }}<br />
                           {{ mail.date }} [<a href="/email_raw?id={{ mail.id }}">raw</a>]</div>
