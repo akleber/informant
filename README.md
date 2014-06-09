@@ -40,9 +40,6 @@ Now you can install the recommended requirements (created with "pip freeze > req
 # ToDo
 
 * save processed state per mail
-* forwarding rules administration
-* styling rules admin
-* /forwarding-edit, /forwarding-add, /forwarding-delete
 * Examples on rule edit pages
 * many message handling
 	* Paging

@@ -13,7 +13,7 @@
 				{% if column.name == "id" %}
 				<!-- skip -->
 				{% else %}
-					{{ column.name }} : <input type=text size=30 name=column.name />
+					{{ column.name }} : <input type=text size=30 name={{ column.name }} />
 				{% endif %}
 			{% endfor %}
 			<input type=hidden name="ruletype" value="{{ ruletype }}">

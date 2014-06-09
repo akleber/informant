@@ -125,10 +125,30 @@ def forwarding_edit():
 def styling_edit():
     return render_edit_rules('styling')
 
-@app.route('/rule_add')
+@app.route('/rule_add', methods=['POST'])
 def rule_add():
-    
-    return render_markdown_file('README.md')
+    ruletype = request.form['ruletype']
+    table = ruletype + '_rules'
+
+    columns = []
+    values = []
+
+    for column,value in request.form.iteritems():
+        if not column == 'ruletype':
+            columns.append(column)
+            values.append('\''+value+'\'')
+
+    # convert lists to comma separated strings
+    column_str = ','.join(map(str, columns)) 
+    value_str = ','.join(map(str, values))
+
+    # add values to the database
+    db = get_db()
+    cur = db.cursor().execute('insert into %s ( %s ) values (%s)' % (table, column_str, value_str))
+    db.commit()
+
+    # return to edit page
+    return redirect(url_for(ruletype + '_edit'))
 
 @app.route('/rule_delete')
 def rule_delete():
