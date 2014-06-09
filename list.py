@@ -4,6 +4,7 @@ from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, Markup
 from markdown import markdown
 from email.parser import Parser
+import re
 
 
 # create our little application :)
@@ -56,10 +57,22 @@ def email_subject_filter(data):
     return Parser().parsestr(data, False).get_payload()
 
 @app.template_filter('headercolor')
-def headercolor_filter(data):
-    # todo get regex and color from database
-    #return '#FFC7C7'
-    #return '#AEFFB3'
+def headercolor_filter(maildata):
+    db = get_db()
+    cur = db.execute('select regex, header_color from styling_rules')
+    rows = cur.fetchall()
+    for row in rows:
+        pattern = row["regex"]
+        color = row["header_color"]
+        flags = re.S
+
+        prog = re.compile(pattern, flags)
+        result = prog.match(maildata)
+
+        if result is not None:
+            return color
+
+    #default to grey
     return '#F5F5F5'
 
 
