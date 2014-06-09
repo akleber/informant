@@ -16,6 +16,7 @@
 					{{ column.name }} : <input type=text size=30 name=column.name />
 				{% endif %}
 			{% endfor %}
+			<input type=hidden name="ruletype" value="{{ ruletype }}">
 			<input type=submit value="Add">
 		</div>
 	</form>
@@ -43,7 +44,7 @@
 				</td>
 				{% endfor %}
 				<td>
-					<a href="/forwarding_delete">delete</a>
+					<a href="{{ url_for('forwarding_delete', id=row.id) }}">delete</a>
 				</td>
 			</tr>
 			{% endfor %}

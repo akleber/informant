@@ -112,12 +112,20 @@ def forwarding_edit():
 def forwarding_add():
     return render_markdown_file('README.md')
 
+@app.route('/forwarding_delete')
+def forwarding_delete():
+    return render_markdown_file('README.md')
+
 @app.route('/styling_edit')
 def styling_edit():
     return render_edit_rules('styling')
 
 @app.route('/styling_add')
 def styling_add():
+    return render_markdown_file('README.md')
+
+@app.route('/styling_delete')
+def styling_delete():
     return render_markdown_file('README.md')
 
 
