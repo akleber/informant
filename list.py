@@ -121,25 +121,27 @@ def email_raw():
 def forwarding_edit():
     return render_edit_rules('forwarding')
 
-@app.route('/forwarding_add')
-def forwarding_add():
-    return render_markdown_file('README.md')
-
-@app.route('/forwarding_delete')
-def forwarding_delete():
-    return render_markdown_file('README.md')
-
 @app.route('/styling_edit')
 def styling_edit():
     return render_edit_rules('styling')
 
-@app.route('/styling_add')
-def styling_add():
+@app.route('/rule_add')
+def rule_add():
+    
     return render_markdown_file('README.md')
 
-@app.route('/styling_delete')
-def styling_delete():
-    return render_markdown_file('README.md')
+@app.route('/rule_delete')
+def rule_delete():
+    ruletype = request.args.get('ruletype', '')
+    table = ruletype + '_rules'
+    rule_id = request.args.get('id', '')
+
+    db = get_db()
+    cur = db.execute('delete from %s where id = %s' % (table, rule_id))
+    db.commit()
+
+    # return to edit page
+    return redirect(url_for(ruletype + '_edit'))
 
 
 

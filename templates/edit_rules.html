@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-	<form action="{{ url_for('forwarding_add') }}" method=post>
+	<form action="{{ url_for('rule_add') }}" method=post>
 		<div>
 			{% for column in columns %}
 				<!-- 
@@ -44,7 +44,7 @@
 				</td>
 				{% endfor %}
 				<td>
-					<a href="{{ url_for('forwarding_delete', id=row.id) }}">delete</a>
+					<a href="{{ url_for('rule_delete', ruletype=ruletype, id=row.id) }}">delete</a>
 				</td>
 			</tr>
 			{% endfor %}
