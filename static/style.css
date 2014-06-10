@@ -3,6 +3,7 @@ a, h1, h2       { color: #377BA8; }
 h1              { font-weight: normal; border-bottom: 2px solid #eee; }
 h2				{ font-weight: normal; }
 pre				{ font-size: small; padding: 0.3em; margin: 0; }
+img				{ vertical-align:text-bottom; }
 
 .message pre	{ display:none; }
 

@@ -39,7 +39,6 @@ Now you can install the recommended requirements (created with "pip freeze > req
 
 # ToDo
 
-* icon for message body toggle
 * many message handling
 	* Paging
 	* Date picker/Filter 
