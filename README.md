@@ -39,7 +39,6 @@ Now you can install the recommended requirements (created with "pip freeze > req
 
 # ToDo
 
-* save processed state per mail
 * Examples on rule edit pages
 * many message handling
 	* Paging

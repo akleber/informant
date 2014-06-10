@@ -100,7 +100,7 @@ def render_edit_rules(ruletype):
 @app.route('/')
 def messages():
     db = get_db()
-    cur = db.execute('select id, datetime(date) as date, maildata from mails order by date desc limit 30')
+    cur = db.execute('select id, datetime(date) as date, maildata, forwarded from mails order by date desc limit 30')
     mails = cur.fetchall()
     return render_template('messages.html', mails = mails)
 

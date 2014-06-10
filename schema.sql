@@ -3,7 +3,8 @@ DROP TABLE IF EXISTS mails;
 CREATE TABLE mails (
   'id' integer primary key autoincrement,
   'date' text not null,
-  'maildata' text not null
+  'maildata' text not null,
+  'forwarded' BOOLEAN DEFAULT 0
 );
 DELETE FROM "sqlite_sequence";
 INSERT INTO "sqlite_sequence" VALUES('mails',1);
@@ -20,11 +21,6 @@ CREATE TABLE styling_rules (
   'id' integer primary key autoincrement,
   'regex' text not null,
   'header_color' text not null
-);
-
-DROP TABLE IF EXISTS source;
-CREATE TABLE source (
-  'last_processed_id' INTEGER DEFAULT 0
 );
 
 COMMIT;

@@ -13,7 +13,7 @@ EMAIL_SERVER_PORT = 1026
 
 def deliver(mailfrom, rcpttos, data):
 	print 'Sending email from: ', mailfrom, ' to: ', rcpttos
-	#return
+	return
 
 	refused = {}
 	try:
@@ -56,7 +56,7 @@ def process_mail(dbcon, mail_id, mail):
 
 			refused = deliver(mailfrom, recipient, mail)
 			if not refused:
-				cur.execute('update source set last_processed_id = ?', (mail_id,))
+				cur.execute('update mails set forwarded = 1 where id = ?', (mail_id,))
 				dbcon.commit()
 	return
 
@@ -66,7 +66,7 @@ def poll(dbcon):
 		print 'Poll'
 		# get unprocessed mails
 		cur = dbcon.cursor()
-		cur.execute('select * from mails where id > (select last_processed_id from source)')
+		cur.execute('select * from mails where not forwarded')
 		rows = cur.fetchall()
 		for row in rows:
 			process_mail(dbcon, row[0], row[2])

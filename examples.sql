@@ -18,7 +18,7 @@ State: DOWN
 Address: servido.icidogroup.icido.com
 Info: check_ping: Invalid hostname/address - servido.icidogroup.icido.com
 
-Date/Time: Thu Jun 5 12:21:18 CEST 2014');
+Date/Time: Thu Jun 5 12:21:18 CEST 2014',0);
 INSERT INTO "mails" VALUES(2,'2014-05-28 15:01:14.934898','Received: from icidogroup.icido.com (10.0.0.9) by
  ESCVSE-EXCAS01.ESI-INTERNAL.esi-group.com (172.22.10.66) with Microsoft SMTP
  Server id 14.2.328.9; Wed, 5 Feb 2014 10:59:32 +0100
@@ -102,7 +102,7 @@ Nagios mailing list
 Nagios@infrastructure-da.icidogroup.icido.com
 http://infrastructure-da.icidogroup.icido.com/cgi-bin/mailman/listinfo/nagi=
 os
-');
+',0);
 INSERT INTO "mails" VALUES(3,'2014-05-23 15:01:25.871928','Received: from icidogroup.icido.com (10.0.0.9) by
  ESCVSE-EXCAS01.ESI-INTERNAL.esi-group.com (172.22.10.66) with Microsoft SMTP
  Server id 14.2.328.9; Wed, 22 Jan 2014 06:33:07 +0100
@@ -181,7 +181,7 @@ Nagios mailing list
 Nagios@infrastructure-da.icidogroup.icido.com
 http://infrastructure-da.icidogroup.icido.com/cgi-bin/mailman/listinfo/nagi=
 os
-');
+',0);
 INSERT INTO "mails" VALUES(4,'2014-05-23 15:01:35.028470','Message-ID: <5385DE2E.5070602@nagios.com>
 Date: Wed, 28 May 2014 15:01:34 +0200
 From: nagios <nagios@nagios.com>
@@ -192,14 +192,12 @@ Subject: knkjkjb
 Content-Type: text/plain; charset=ISO-8859-15; format=flowed
 Content-Transfer-Encoding: 7bit
 
-kjbkjkjb');
+kjbkjkjb',0);
 
 INSERT INTO "forwarding_rules" VALUES(1,'.*','aln@esi-group.com');
 INSERT INTO "forwarding_rules" VALUES(2,'.*From:\svery_important','priority@icido.com');
 
 INSERT INTO "styling_rules" VALUES(1,'.*CRITICAL','#FFC7C7');
 INSERT INTO "styling_rules" VALUES(2,'.*RECOVERY','#AEFFB3');
-
-INSERT INTO "source" VALUES(2);
 
 COMMIT;
