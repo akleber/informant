@@ -2,7 +2,9 @@ body            { font-family: sans-serif; background: #eee; }
 a, h1, h2       { color: #377BA8; }
 h1              { font-weight: normal; border-bottom: 2px solid #eee; }
 h2				{ font-weight: normal; }
-pre				{ font-size: small; padding: 0.3em; margin: 0;}
+pre				{ font-size: small; padding: 0.3em; margin: 0; }
+
+.message pre	{ display:none; }
 
 .active			{ background: #eeeeee; border-radius: 3px; }
 .top-nav a 		{ padding: 5px; }

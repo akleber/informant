@@ -1,16 +1,27 @@
 {% extends "layout.html" %}
 {% block body %}
+  <script type="text/javascript">
+    function toggle(id) 
+    {
+      var e = document.getElementById(id);
+      if ( e.style.display == 'block' )
+        e.style.display = 'none';
+      else
+        e.style.display = 'block';
+    }
+  </script>
+
   <ul class="messages">
   {% for mail in mails %}
     <li class="message">
       <div class="header" style="background: {{ mail.maildata|headercolor }}">
         <div class="from">From: {{ mail.maildata|email_from|safe }}<br />
-                          {{ mail.date }} [<a href="{{ url_for('email_raw', id=mail.id) }}">raw</a>]
+                          {{ mail.date }} [<a href="{{ url_for('email_raw', id=mail.id) }}">raw</a>] (<a href="javascript:toggle('{{ mail.id }}');">o</a>)
                           {% if not mail.forwarded %}<br /><b>not yet forwarded</b>{% endif %}
         </div>
         <div class="subject">{{ mail.maildata|email_subject|safe }}</div>
       </div>
-      <pre>{{ mail.maildata|email_body|safe }}</pre>
+      <pre id={{ mail.id }}>{{ mail.maildata|email_body|safe }}</pre>
     </li>
   {% else %}
     <li><em>Unbelievable.  No mails here so far</em></li>
