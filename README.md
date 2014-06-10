@@ -38,8 +38,3 @@ Now you can install the recommended requirements (created with "pip freeze > req
 	$ pip install -r requirements.txt
 
 # ToDo
-
-
-
-
-
