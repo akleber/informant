@@ -182,17 +182,6 @@ Nagios@infrastructure-da.icidogroup.icido.com
 http://infrastructure-da.icidogroup.icido.com/cgi-bin/mailman/listinfo/nagi=
 os
 ',0);
-INSERT INTO "mails" VALUES(4,'2014-05-23 15:01:35.028470','Message-ID: <5385DE2E.5070602@nagios.com>
-Date: Wed, 28 May 2014 15:01:34 +0200
-From: nagios <nagios@nagios.com>
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:24.0) Gecko/20100101 Thunderbird/24.5.0
-MIME-Version: 1.0
-To: test@blub
-Subject: knkjkjb
-Content-Type: text/plain; charset=ISO-8859-15; format=flowed
-Content-Transfer-Encoding: 7bit
-
-kjbkjkjb',0);
 
 INSERT INTO "forwarding_rules" VALUES(1,'.*','aln@esi-group.com');
 INSERT INTO "forwarding_rules" VALUES(2,'.*From:\svery_important','priority@icido.com');

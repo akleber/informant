@@ -25,7 +25,16 @@
       <pre id={{ mail.id }}>{{ mail.maildata|email_body|safe }}</pre>
     </li>
   {% else %}
-    <li><em>Unbelievable.  No mails here so far</em></li>
+    <li><em>No messages here.</em></li>
   {% endfor %}
   </ul>
+
+  <p style="text-align: center;">
+    {% set nextpage=page|int + 1 %}
+    {% set prevpage=page|int - 1 %}
+    {% if prevpage < 0 %}
+      {% set prevpage = 0 %}
+    {% endif %}
+    <a href="{{ url_for('messages', page=prevpage) }}">&lt; Newer messages</a> | <a href="{{ url_for('messages', page=nextpage) }}">Older messages &gt;</a>
+  </p>
 {% endblock %}

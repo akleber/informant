@@ -16,6 +16,8 @@ app.config.update(dict(
     DEBUG=True
 ))
 
+ENTRIES_PER_PAGE = 30
+
 
 def connect_db():
     """Connects to the specific database."""
@@ -99,10 +101,15 @@ def render_edit_rules(ruletype):
 
 @app.route('/')
 def messages():
+    page = request.args.get('page')
+    offset = 0
+    if not page is None:
+        offset = int(page) * ENTRIES_PER_PAGE
+
     db = get_db()
-    cur = db.execute('select id, datetime(date) as date, maildata, forwarded from mails order by date desc limit 30')
+    cur = db.execute('select id, datetime(date) as date, maildata, forwarded from mails order by date desc limit ? offset ?', (ENTRIES_PER_PAGE,offset))
     mails = cur.fetchall()
-    return render_template('messages.html', mails = mails)
+    return render_template('messages.html', mails = mails, page = page)
 
 @app.route('/readme')
 def readme():
