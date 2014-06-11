@@ -8,17 +8,17 @@ from email.parser import Parser
 import database
 
 EMAIL_SERVER_ADDRESS = '127.0.0.1'
-EMAIL_SERVER_PORT = 1026
+EMAIL_SERVER_PORT = 25
 
 
 def deliver(mailfrom, rcpttos, data):
 	print 'Sending email from: ', mailfrom, ' to: ', rcpttos
-	return
+	#return
 
 	refused = {}
 	try:
-		s = smtplib.SMTP()
-		s.connect(EMAIL_SERVER_ADDRESS, EMAIL_SERVER_PORT)
+		s = smtplib.SMTP(EMAIL_SERVER_ADDRESS, EMAIL_SERVER_PORT, timeout=5)
+		#s.set_debuglevel(1)
 		try:
 			refused = s.sendmail(mailfrom, rcpttos, data)
 		finally:

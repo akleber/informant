@@ -3,3 +3,4 @@ informant.db
 dump.db
 database.pyc
 dump.sql
+static/.DS_Store
